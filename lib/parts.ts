@@ -21,7 +21,11 @@ export type Part = {
   photo?: { n: number; x: number; y: number };
   /** One box per piece — RAM is two modules in one part. */
   boxes: { size: Vec3; at: Vec3 }[];
-  /** Where the part travels to in the exploded view. */
+  /**
+   * Where the part travels in the exploded view. The camera is locked to the
+   * open, front corner of the case, so every direction carries +X and +Z to
+   * bring the part towards the viewer rather than behind the case.
+   */
   explode: Vec3;
   /** Slot it plugs into, highlighted together with the part. */
   slot?: string;
@@ -60,7 +64,7 @@ export const PARTS: Part[] = [
     step: "3.2.1",
     photo: { n: 1, x: 28, y: 77 },
     boxes: [{ size: [0.04, 0.4, 0.4], at: [ON_BOARD + 0.02, 3.4, -0.85] }],
-    explode: [2.0, 1.0, 0],
+    explode: [2.0, 1.0, 0.5],
     slot: "socket",
     color: "#c3c7cb",
   },
@@ -71,7 +75,7 @@ export const PARTS: Part[] = [
     step: "3.2.2",
     photo: { n: 2, x: 10, y: 51 },
     boxes: [{ size: [0.03, 0.22, 0.8], at: [ON_BOARD + 0.02, 2.85, -0.4] }],
-    explode: [1.5, -0.4, 1.0],
+    explode: [1.6, -0.3, 1.3],
     slot: "m2",
     color: "#48535c",
   },
@@ -84,7 +88,7 @@ export const PARTS: Part[] = [
       { size: [0.72, 1.25, 0.78], at: [-0.46, 3.4, -0.85] }, // žebra
       { size: [0.1, 1.15, 1.15], at: [-0.05, 3.4, -0.85] }, // ventilátor
     ],
-    explode: [2.6, 1.2, 0],
+    explode: [2.8, 1.3, 0.6],
     slot: "socket",
     color: "#9aa3a8",
   },
@@ -97,7 +101,7 @@ export const PARTS: Part[] = [
       { size: [0.31, 1.33, 0.07], at: [-0.71, 3.3, -0.2] },
       { size: [0.31, 1.33, 0.07], at: [-0.71, 3.3, -0.05] },
     ],
-    explode: [1.7, 1.1, 0.4],
+    explode: [1.8, 1.2, 0.9],
     slot: "dimm",
     color: "#554d63",
   },
@@ -118,7 +122,7 @@ export const PARTS: Part[] = [
     step: "3.2.6",
     photo: { n: 5, x: 35, y: 26 },
     boxes: [{ size: [1.5, 0.86, 1.4], at: [0, 0.5, -1.25] }],
-    explode: [0, -1.8, -1.0],
+    explode: [0.7, -1.5, 1.8],
     color: "#33383c",
   },
   {
@@ -131,7 +135,7 @@ export const PARTS: Part[] = [
       { size: [1.11, 0.38, 2.41], at: [-0.31, 2.36, -0.54] },
       { size: [0.9, 0.06, 0.9], at: [-0.25, 2.16, -0.9] }, // ventilátor
     ],
-    explode: [2.4, -0.7, 0.8],
+    explode: [2.4, -0.6, 1.3],
     slot: "pcie16",
     color: "#2b3236",
   },
@@ -142,7 +146,7 @@ export const PARTS: Part[] = [
     step: "3.2.8",
     photo: { n: 7, x: 68, y: 77 },
     boxes: [{ size: [0.9, 0.2, 1.2], at: [-0.42, 2.05, -1.08] }],
-    explode: [2.0, -1.3, 0.5],
+    explode: [2.0, -1.2, 1.1],
     slot: "pcie1",
     color: "#26384f",
   },
