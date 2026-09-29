@@ -93,10 +93,11 @@ export function HeroView({
       <div className={styles.spec} data-filled={shown ? true : undefined}>
         {shown ? (
           <>
+            {/* the cooler has no row in the component table — then just stay quiet */}
             <p className={styles.specPart}>{shown.label}</p>
-            <p className={styles.specModel}>{spec?.model ?? "—"}</p>
+            {spec?.model && <p className={styles.specModel}>{spec.model}</p>}
             <p className={styles.specParams}>
-              {spec?.params ?? "v tabulce sestavy neuvedeno"}
+              {spec?.params}
               {steps[shown.step] && (
                 <a href={`#${steps[shown.step]}`}>{shown.step} — montáž →</a>
               )}
