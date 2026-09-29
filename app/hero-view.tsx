@@ -19,13 +19,18 @@ const pad = (n: number) => String(n).padStart(2, "0");
  * pointing at a part in the list lights it up in the view, and in 3D it also
  * lights up the connector it plugs into.
  */
+export type Spec = { model: string; params: string };
+
 export function HeroView({
   cover,
   steps,
+  specs,
 }: {
   cover: Picture;
   /** Section number → heading id, so a part can link to its step. */
   steps: Record<string, string>;
+  /** Part id → what the document says was actually used. */
+  specs: Record<string, Spec>;
 }) {
   const [view, setView] = useState<"photo" | "model">("photo");
   const [hovered, setHovered] = useState<string | null>(null);
@@ -33,6 +38,8 @@ export function HeroView({
   // the callout coordinates only describe the original photo
   const callouts = cover.src === COVER_IMAGE ? partsOnPhoto : [];
   const listed = view === "photo" ? callouts : PARTS;
+  const shown = PARTS.find((p) => p.id === hovered);
+  const spec = shown ? specs[shown.id] : undefined;
 
   return (
     <figure className={styles.heroFigure}>
@@ -81,6 +88,26 @@ export function HeroView({
       ) : (
         <Build3D hovered={hovered} onHover={setHovered} />
       )}
+
+      {/* fixed height, so moving the pointer around never shifts the page */}
+      <div className={styles.spec} data-filled={shown ? true : undefined}>
+        {shown ? (
+          <>
+            <p className={styles.specPart}>{shown.label}</p>
+            <p className={styles.specModel}>{spec?.model ?? "—"}</p>
+            <p className={styles.specParams}>
+              {spec?.params ?? "v tabulce sestavy neuvedeno"}
+              {steps[shown.step] && (
+                <a href={`#${steps[shown.step]}`}>{shown.step} — montáž →</a>
+              )}
+            </p>
+          </>
+        ) : (
+          <p className={styles.specHint}>
+            Najeď na díl a uvidíš, co je v sestavě doopravdy použité.
+          </p>
+        )}
+      </div>
 
       <figcaption className={styles.heroLegend}>
         {listed.map((part) => (

@@ -1,7 +1,25 @@
 import Image from "next/image";
 import { HeroView } from "./hero-view";
 import styles from "./thesis.module.css";
-import type { NavEntry, Thesis } from "@/lib/thesis";
+import { PARTS } from "@/lib/parts";
+import { thesis, type NavEntry, type Thesis } from "@/lib/thesis";
+
+const plain = (text: string) =>
+  text.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+/** Model and parameters per part, read from the component table in the document. */
+function readSpecs() {
+  const table = thesis.blocks.find((b) => b.kind === "table");
+  if (!table) return {};
+  return Object.fromEntries(
+    PARTS.flatMap((part) => {
+      const row = part.specKey
+        ? table.rows.find((cells) => plain(cells[0]).includes(part.specKey!))
+        : undefined;
+      return row ? [[part.id, { model: row[1], params: row[2] }] as const] : [];
+    }),
+  );
+}
 
 export function Hero({ meta, nav }: { meta: Thesis["meta"]; nav: NavEntry[] }) {
   // "3.2.7 Montáž grafické karty" → { "3.2.7": "3-2-7-montaz-graficke-karty" }
@@ -45,7 +63,7 @@ export function Hero({ meta, nav }: { meta: Thesis["meta"]; nav: NavEntry[] }) {
         </p>
       </div>
 
-      {meta.cover && <HeroView cover={meta.cover} steps={steps} />}
+      {meta.cover && <HeroView cover={meta.cover} steps={steps} specs={readSpecs()} />}
     </header>
   );
 }

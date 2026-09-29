@@ -71,6 +71,12 @@ zvýrazní zlatě a **rozsvítí konektor na desce, do kterého patří** — pa
 sloty DIMM, M.2, PCIe x16 nebo x1. Zároveň se zprůhlední bočnice, aby bylo
 dovnitř vidět. Kliknutí vede na kapitolu o montáži toho dílu.
 
+Pod scénou se přitom vypíše, co je to za konkrétní komponentu — model
+a parametry. Nejsou nikde přepsané: `Hero` je páruje s tabulkou sestavy
+z dokumentu přes `specKey` v `lib/parts.ts` (např. `"grafika"` najde řádek
+„Grafika (GPU)"). Když se tabulka změní, karta se změní s ní; když se díl
+v tabulce nenajde (chladič tam není), napíše se to.
+
 Model je schéma, ne fotorealistický render — díly jsou kvádry v reálných
 poměrech, ne 3D modely konkrétních komponent. Souřadnicová soustava a rozměry
 jsou popsané v hlavičce `lib/parts.ts`.

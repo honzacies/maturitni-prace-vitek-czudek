@@ -25,6 +25,11 @@ export type Part = {
   explode: Vec3;
   /** Slot it plugs into, highlighted together with the part. */
   slot?: string;
+  /**
+   * Matches the first column of the component table in the thesis, so the model
+   * and its parameters come from the document instead of being repeated here.
+   */
+  specKey?: string;
   color: string;
 };
 
@@ -50,6 +55,7 @@ export const SLOTS: Slot[] = [
 export const PARTS: Part[] = [
   {
     id: "cpu",
+    specKey: "procesor",
     label: "Procesor",
     step: "3.2.1",
     photo: { n: 1, x: 28, y: 77 },
@@ -60,6 +66,7 @@ export const PARTS: Part[] = [
   },
   {
     id: "ssd",
+    specKey: "ssd",
     label: "SSD disk",
     step: "3.2.2",
     photo: { n: 2, x: 10, y: 51 },
@@ -83,6 +90,7 @@ export const PARTS: Part[] = [
   },
   {
     id: "ram",
+    specKey: "pamet",
     label: "Paměť RAM",
     step: "3.2.4",
     boxes: [
@@ -95,6 +103,7 @@ export const PARTS: Part[] = [
   },
   {
     id: "board",
+    specKey: "deska",
     label: "Základní deska",
     step: "3.2.5",
     photo: { n: 4, x: 79, y: 54 },
@@ -104,6 +113,7 @@ export const PARTS: Part[] = [
   },
   {
     id: "psu",
+    specKey: "zdroj",
     label: "Zdroj",
     step: "3.2.6",
     photo: { n: 5, x: 35, y: 26 },
@@ -113,6 +123,7 @@ export const PARTS: Part[] = [
   },
   {
     id: "gpu",
+    specKey: "grafika",
     label: "Grafická karta",
     step: "3.2.7",
     photo: { n: 6, x: 59, y: 25 },
@@ -126,6 +137,7 @@ export const PARTS: Part[] = [
   },
   {
     id: "nic",
+    specKey: "sitova",
     label: "Síťová karta",
     step: "3.2.8",
     photo: { n: 7, x: 68, y: 77 },
@@ -136,10 +148,9 @@ export const PARTS: Part[] = [
   },
 ];
 
-/** Not part of the numbered sequence, but they are in the case. */
+/** Not a numbered step, but section 3.2.9 installs it. */
 export const FIXTURES: { size: Vec3; at: Vec3; color: string }[] = [
-  { size: [1.46, 0.42, 1.7], at: [0, 4.05, 1.05], color: "#202427" }, // mechanika
-  { size: [0.12, 1.2, 1.2], at: [-0.2, 1.4, 1.85], color: "#1b1f22" }, // přední ventilátor
+  { size: [1.46, 0.42, 1.7], at: [0, 4.05, 1.05], color: "#202427" }, // optická mechanika
 ];
 
 export const partsOnPhoto = PARTS.filter(
