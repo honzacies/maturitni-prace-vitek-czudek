@@ -3,7 +3,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Edges, OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
-import type { Group, Mesh, MeshStandardMaterial } from "three";
+import type { Group, Mesh, MeshStandardMaterial, Vector3 } from "three";
 import { CASE, FIXTURES, PARTS, SLOTS, type Part, type Vec3 } from "@/lib/parts";
 import styles from "./thesis.module.css";
 
@@ -23,9 +23,8 @@ function Assembly({
   onHover: (id: string | null) => void;
 }) {
   const group = useRef<Group>(null);
-  // hovering lifts a part part-way out, so you can see it and the slot it came from;
-  // the exploded view stops short of `explode` to keep everything in frame
-  const travel = exploded ? 0.72 : active ? 0.34 : 0;
+  // hovering slides a part part-way out, so you see both it and the slot it left
+  const travel = exploded ? 1 : active ? 0.16 : 0;
   const target = part.explode.map((d) => d * travel) as Vec3;
 
   useFrame((_, delta) => {
@@ -89,22 +88,30 @@ function SlotMarker({ slot, lit }: { slot: (typeof SLOTS)[number]; lit: boolean 
   );
 }
 
-/** Case shell. The open side and front fade away while a part is hovered. */
-function Enclosure({ revealing }: { revealing: boolean }) {
+/** Eases a material's opacity towards a goal. */
+function fade(mesh: Mesh | null, goal: number, delta: number) {
+  const material = mesh?.material as MeshStandardMaterial | undefined;
+  if (!material) return;
+  material.opacity += (goal - material.opacity) * (1 - Math.pow(0.002, delta));
+}
+
+/**
+ * Case shell. The glass side clears further while a part is hovered, and the
+ * lid comes off while exploded, since that is the way the parts travel out.
+ */
+function Enclosure({ revealing, exploded }: { revealing: boolean; exploded: boolean }) {
   const side = useRef<Mesh>(null);
+  const lid = useRef<Mesh>(null);
   const { width: w, height: h, depth: d, wall } = CASE;
   const panels: { size: Vec3; at: Vec3 }[] = [
     { size: [w, wall, d], at: [0, 0, 0] },
-    { size: [w, wall, d], at: [0, h, 0] },
     { size: [w, h, wall], at: [0, h / 2, -d / 2] },
     { size: [wall, h, d], at: [-w / 2, h / 2, 0] },
   ];
 
   useFrame((_, delta) => {
-    const material = side.current?.material as MeshStandardMaterial | undefined;
-    if (!material) return;
-    const goal = revealing ? 0.03 : 0.1;
-    material.opacity += (goal - material.opacity) * (1 - Math.pow(0.002, delta));
+    fade(side.current, revealing ? 0.03 : 0.1, delta);
+    fade(lid.current, exploded ? 0 : 1, delta);
   });
 
   return (
@@ -116,6 +123,18 @@ function Enclosure({ revealing }: { revealing: boolean }) {
           <Edges color="#3b4a46" />
         </mesh>
       ))}
+
+      <mesh ref={lid} position={[0, h, 0]} receiveShadow>
+        <boxGeometry args={[w, wall, d]} />
+        <meshStandardMaterial
+          color="#20272b"
+          transparent
+          opacity={1}
+          metalness={0.15}
+          roughness={0.7}
+        />
+      </mesh>
+
       <mesh ref={side} position={[w / 2, h / 2, 0]}>
         <boxGeometry args={[wall, h, d]} />
         <meshStandardMaterial
@@ -128,6 +147,25 @@ function Enclosure({ revealing }: { revealing: boolean }) {
       </mesh>
     </group>
   );
+}
+
+/** Pulls the camera back and lifts its aim when the parts rise out of the case. */
+function CameraRig({ exploded }: { exploded: boolean }) {
+  useFrame((state, delta) => {
+    const controls = state.controls as { target: Vector3; update: () => void } | null;
+    if (!controls) return;
+    const ease = 1 - Math.pow(0.02, delta);
+    controls.target.y += ((exploded ? 3.0 : 0) - controls.target.y) * ease;
+
+    const from = state.camera.position.clone().sub(controls.target);
+    const distance = from.length();
+    const goal = exploded ? 19.5 : 12.7;
+    state.camera.position
+      .copy(controls.target)
+      .addScaledVector(from.normalize(), distance + (goal - distance) * ease);
+    controls.update();
+  });
+  return null;
 }
 
 function Scene({
@@ -150,7 +188,7 @@ function Scene({
       <pointLight position={[1.5, 2.6, 1.5]} intensity={6} distance={7} color={GOLD} />
 
       <group position={[0, -2.2, 0]}>
-        <Enclosure revealing={hovered !== null} />
+        <Enclosure revealing={hovered !== null} exploded={exploded} />
 
         {FIXTURES.map((fixture, i) => (
           <mesh key={i} position={fixture.at}>
@@ -195,10 +233,12 @@ export function Build3D({
         onPointerMissed={() => onHover(null)}
       >
         <Scene hovered={hovered} exploded={exploded} onHover={onHover} />
+        <CameraRig exploded={exploded} />
         <OrbitControls
+          makeDefault
           enablePan={false}
           minDistance={7}
-          maxDistance={24}
+          maxDistance={30}
           minPolarAngle={0.25}
           maxPolarAngle={Math.PI / 2}
           /* keep the viewer on the open side of the case */

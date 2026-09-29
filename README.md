@@ -64,7 +64,9 @@ v dokumentu změní první obrázek, popisky se samy vypnou a zbude čistá fotk
 
 Přepínač nad obrázkem přepne fotku za interaktivní model sestavy: skříň, deska,
 procesor, chladič, paměti, zdroj, grafická a síťová karta. Táhnutím se otáčí,
-kolečkem přibližuje, tlačítko rozloží sestavu do exploded view.
+kolečkem přibližuje, tlačítko rozloží sestavu do exploded view: díly stoupají
+rovnou vzhůru ven ze skříně (X a Z zůstávají), takže neproletí bočnicí — horní
+panel se přitom odklopí a kamera odjede, aby se celý sloup vešel do záběru.
 
 Najetí na díl v legendě (nebo na díl přímo ve scéně) ho povysune ze slotu,
 zvýrazní zlatě a **rozsvítí konektor na desce, do kterého patří** — patici AM4,
