@@ -24,7 +24,7 @@ function Assembly({
 }) {
   const group = useRef<Group>(null);
   // hovering slides a part part-way out, so you see both it and the slot it left
-  const travel = exploded ? 1 : active ? 0.16 : 0;
+  const travel = exploded ? 1 : active ? 0.2 : 0;
   const target = part.explode.map((d) => d * travel) as Vec3;
 
   useFrame((_, delta) => {
@@ -96,22 +96,21 @@ function fade(mesh: Mesh | null, goal: number, delta: number) {
 }
 
 /**
- * Case shell. The glass side clears further while a part is hovered, and the
- * lid comes off while exploded, since that is the way the parts travel out.
+ * Case shell. The glass side clears while a part is hovered and comes off
+ * completely while exploded, since that is the way the parts travel out.
  */
 function Enclosure({ revealing, exploded }: { revealing: boolean; exploded: boolean }) {
   const side = useRef<Mesh>(null);
-  const lid = useRef<Mesh>(null);
   const { width: w, height: h, depth: d, wall } = CASE;
   const panels: { size: Vec3; at: Vec3 }[] = [
     { size: [w, wall, d], at: [0, 0, 0] },
+    { size: [w, wall, d], at: [0, h, 0] },
     { size: [w, h, wall], at: [0, h / 2, -d / 2] },
     { size: [wall, h, d], at: [-w / 2, h / 2, 0] },
   ];
 
   useFrame((_, delta) => {
-    fade(side.current, revealing ? 0.03 : 0.1, delta);
-    fade(lid.current, exploded ? 0 : 1, delta);
+    fade(side.current, exploded ? 0 : revealing ? 0.03 : 0.1, delta);
   });
 
   return (
@@ -123,17 +122,6 @@ function Enclosure({ revealing, exploded }: { revealing: boolean; exploded: bool
           <Edges color="#3b4a46" />
         </mesh>
       ))}
-
-      <mesh ref={lid} position={[0, h, 0]} receiveShadow>
-        <boxGeometry args={[w, wall, d]} />
-        <meshStandardMaterial
-          color="#20272b"
-          transparent
-          opacity={1}
-          metalness={0.15}
-          roughness={0.7}
-        />
-      </mesh>
 
       <mesh ref={side} position={[w / 2, h / 2, 0]}>
         <boxGeometry args={[wall, h, d]} />
@@ -149,17 +137,17 @@ function Enclosure({ revealing, exploded }: { revealing: boolean; exploded: bool
   );
 }
 
-/** Pulls the camera back and lifts its aim when the parts rise out of the case. */
+/** Pulls the camera back and pans along the row when the parts come out. */
 function CameraRig({ exploded }: { exploded: boolean }) {
   useFrame((state, delta) => {
     const controls = state.controls as { target: Vector3; update: () => void } | null;
     if (!controls) return;
     const ease = 1 - Math.pow(0.02, delta);
-    controls.target.y += ((exploded ? 3.0 : 0) - controls.target.y) * ease;
+    controls.target.x += ((exploded ? 1.7 : 0) - controls.target.x) * ease;
 
     const from = state.camera.position.clone().sub(controls.target);
     const distance = from.length();
-    const goal = exploded ? 19.5 : 12.7;
+    const goal = exploded ? 16.5 : 12.7;
     state.camera.position
       .copy(controls.target)
       .addScaledVector(from.normalize(), distance + (goal - distance) * ease);
