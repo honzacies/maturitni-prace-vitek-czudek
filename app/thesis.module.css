@@ -111,6 +111,9 @@
 /* ------------------------------------------------- annotated cover photo */
 
 .heroFigure {
+  /* how tall the viewport may get, and the cover photo's aspect ratio */
+  --cap: 78svh;
+  --ar: 0.75;
   /* room for the bottom row of labels, which hang below the photo */
   margin: 0 0 46px;
   animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) 0.2s backwards;
@@ -207,30 +210,134 @@
 }
 
 .callout:hover .calloutDot,
-.callout:focus-visible .calloutDot {
+.callout:focus-visible .calloutDot,
+.callout[data-active] .calloutDot {
   background: var(--pad);
   color: var(--board);
 }
 
-.callout:hover .calloutChip {
+.callout:hover .calloutChip,
+.callout[data-active] .calloutChip {
   border-color: var(--pad);
 }
 
 .heroLegend {
-  display: none;
-  gap: 4px 20px;
-  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2px 20px;
+  margin-top: 18px;
   font-family: var(--mono);
   font-size: 11px;
 }
 
 .heroLegend a {
+  padding: 3px 6px 3px 0;
   color: var(--silk-dim);
   text-decoration: none;
+  transition: color 0.15s;
+}
+
+.heroLegend a:hover,
+.heroLegend a[data-active] {
+  color: var(--silk);
 }
 
 .heroLegend b {
   color: var(--pad);
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------- view switch */
+
+.viewSwitch {
+  display: flex;
+  gap: 1px;
+  margin-bottom: 12px;
+  background: var(--edge);
+  border: 1px solid var(--edge);
+  width: fit-content;
+}
+
+.viewSwitch button {
+  padding: 7px 14px;
+  border: 0;
+  background: var(--board);
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.viewSwitch button:hover {
+  color: var(--silk);
+}
+
+.viewSwitch button[aria-pressed="true"] {
+  background: var(--pad);
+  color: #11150f;
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------- 3D viewport */
+
+.stage {
+  position: relative;
+  width: min(100%, calc(var(--cap, 78svh) * var(--ar, 0.75)));
+  margin-inline: auto;
+  border: 1px solid var(--edge);
+  background: linear-gradient(180deg, var(--surface), var(--board));
+}
+
+/* R3F sizes its canvas from this box, so the ratio has to live here */
+.stageCanvas {
+  aspect-ratio: var(--ar);
+  touch-action: none;
+}
+
+.stageBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--edge);
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+}
+
+.stageBar button {
+  padding: 6px 11px;
+  border: 1px solid var(--pad-soft);
+  background: none;
+  color: var(--pad);
+  font: inherit;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.stageBar button:hover,
+.stageBar button[aria-pressed="true"] {
+  border-color: var(--pad);
+  background: color-mix(in srgb, var(--pad) 14%, transparent);
+}
+
+.stageLoading {
+  display: grid;
+  place-items: center;
+  width: min(100%, calc(var(--cap, 78svh) * var(--ar, 0.75)));
+  aspect-ratio: var(--ar);
+  margin-inline: auto;
+  border: 1px solid var(--edge);
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 11px;
 }
 
 /* ============================================================ page layout */
@@ -577,7 +684,7 @@
     gap: 40px;
   }
 
-  .heroPlate {
+  .heroFigure {
     --cap: 64svh;
   }
 }
@@ -590,11 +697,6 @@
   .calloutChip,
   .callout::before {
     display: none;
-  }
-
-  .heroLegend {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
   }
 
   /* block flow, so the sticky bar below sticks to the page and not to its grid row */

@@ -12,7 +12,10 @@ Vykresluje se staticky, žádný server ani databáze.
 | `scripts/build-content.ts` | Přečte `.docx` a vygeneruje `content/thesis.json` + `public/images/`. |
 | `content/thesis.json` | Obsah práce jako data. Generovaný — needituj ručně. |
 | `lib/thesis.ts` | Typy obsahu (`Block`, `Inline`, `Picture`, `Thesis`). |
-| `app/hero.tsx` | Titulní strana s popisky nad fotkou komponent. |
+| `app/hero.tsx` | Titulní strana. |
+| `app/hero-view.tsx` | Přepínač Fotografie / 3D model, sdílený hover, legenda. |
+| `app/build3d.tsx` | 3D scéna sestavy (Three.js, načítá se až po přepnutí). |
+| `lib/parts.ts` | Díly sestavy — souřadnice na fotce i geometrie pro 3D. |
 | `app/page.tsx` | Vykreslí jednotlivé bloky dokumentu. |
 | `app/nav.tsx` | Obsah se scrollspy, přepínač motivu, mobilní rozbalení. |
 | `app/lightbox.tsx` | Zvětšení fotky v `<dialog>`. |
@@ -46,12 +49,34 @@ generátor na konci kontroluje, že vyšly aspoň čtyři kapitoly, tabulka sest
 titulní fotka a rozumný počet bloků, a jinak spadne s chybou. Pokud takovou
 chybu uvidíš, oprav styly v dokumentu, ne kontrolu.
 
-## Popisky na titulní fotce
+## Díly sestavy
 
-`app/hero.tsx` drží seznam `CALLOUTS`: souřadnice v procentech fotky, název dílu
-a kapitola, na kterou popisek odkazuje. Čísla 01–07 jdou v pořadí montáže.
-Souřadnice platí jen pro konkrétní fotku (`image2.jpeg`) — když se v dokumentu
-změní první obrázek, popisky se samy vypnou a zbude čistá fotka.
+`lib/parts.ts` popisuje sestavu jednou a používá se dvakrát: jako popisky nad
+titulní fotkou a jako geometrie ve 3D scéně. U každého dílu je název, kapitola
+práce, volitelná pozice na fotce (v procentech) a kvádry se skutečnými rozměry
+komponenty.
+
+Souřadnice popisků platí jen pro konkrétní fotku (`COVER_IMAGE`) — když se
+v dokumentu změní první obrázek, popisky se samy vypnou a zbude čistá fotka.
+3D scéna na fotce nezávisí.
+
+### 3D model
+
+Přepínač nad obrázkem přepne fotku za interaktivní model sestavy: skříň, deska,
+procesor, chladič, paměti, zdroj, grafická a síťová karta. Táhnutím se otáčí,
+kolečkem přibližuje, tlačítko rozloží sestavu do exploded view.
+
+Najetí na díl v legendě (nebo na díl přímo ve scéně) ho povysune ze slotu,
+zvýrazní zlatě a **rozsvítí konektor na desce, do kterého patří** — patici AM4,
+sloty DIMM, M.2, PCIe x16 nebo x1. Zároveň se zprůhlední bočnice, aby bylo
+dovnitř vidět. Kliknutí vede na kapitolu o montáži toho dílu.
+
+Model je schéma, ne fotorealistický render — díly jsou kvádry v reálných
+poměrech, ne 3D modely konkrétních komponent. Souřadnicová soustava a rozměry
+jsou popsané v hlavičce `lib/parts.ts`.
+
+Three.js se stahuje až ve chvíli, kdy na 3D přepneš (`next/dynamic`, `ssr: false`),
+takže titulní stranu nezpomaluje.
 
 ## Nasazení na Vercel
 
