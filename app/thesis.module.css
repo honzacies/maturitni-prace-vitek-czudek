@@ -1,0 +1,703 @@
+/* ============================================================ hero (cover) */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 0.95fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+  min-height: 100svh;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 72px max(24px, 4vw) 56px;
+}
+
+.heroText > * {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+}
+
+.heroText > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.heroText > *:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.heroText > *:nth-child(4) {
+  animation-delay: 0.24s;
+}
+.heroText > *:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 clamp(24px, 4vh, 48px);
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.crest {
+  width: 30px;
+  height: auto;
+}
+
+.heroTitle {
+  margin: 0;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 118;
+  font-weight: 700;
+  font-size: clamp(2.8rem, 7.4vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.heroKind {
+  margin: 20px 0 0;
+  color: var(--pad);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.plate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 32px 0 0;
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+}
+
+.plate > div {
+  flex: 1 1 130px;
+  padding: 14px 18px 14px 0;
+}
+
+.plate dt {
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.plate dd {
+  margin: 5px 0 0;
+  font-family: var(--mono);
+  font-size: 12.5px;
+}
+
+.heroLede {
+  max-width: 34ch;
+  margin: 28px 0 0;
+  color: var(--silk-dim);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------- annotated cover photo */
+
+.heroFigure {
+  /* room for the bottom row of labels, which hang below the photo */
+  margin: 0 0 46px;
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) 0.2s backwards;
+}
+
+/*
+ * Width is derived from the photo's own aspect ratio, so the box never
+ * letterboxes — the callout percentages below land on the actual photo.
+ */
+.heroPlate {
+  position: relative;
+  container-type: inline-size;
+  width: min(100%, calc(var(--cap, 78svh) * var(--ar, 0.75)));
+  margin-inline: auto;
+  border: 1px solid var(--edge);
+  background: var(--surface);
+  line-height: 0;
+}
+
+.heroPlate img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: var(--cover-filter);
+}
+
+.callout {
+  position: absolute;
+  z-index: 1;
+  translate: -50% -50%;
+  text-decoration: none;
+  animation: pop 0.45s cubic-bezier(0.2, 0.8, 0.3, 1) backwards;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    scale: 0.6;
+  }
+}
+
+.calloutDot {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--pad);
+  border-radius: 50%;
+  background: var(--board);
+  color: var(--pad);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+}
+
+.calloutChip {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  white-space: nowrap;
+  padding: 3px 7px;
+  border: 1px solid var(--pad-soft);
+  background: var(--board);
+  color: var(--silk);
+  font-family: var(--mono);
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* the hairline that ties the label to its part */
+.callout::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 14px;
+  background: var(--pad-soft);
+}
+
+/* offset in container-width units, so labels clear the parts at any photo size */
+.calloutChip {
+  top: 16cqw;
+}
+
+.callout::before {
+  top: 24px;
+  height: calc(16cqw - 24px);
+  background: var(--pad);
+  opacity: 0.55;
+}
+
+.callout:hover .calloutDot,
+.callout:focus-visible .calloutDot {
+  background: var(--pad);
+  color: var(--board);
+}
+
+.callout:hover .calloutChip {
+  border-color: var(--pad);
+}
+
+.heroLegend {
+  display: none;
+  gap: 4px 20px;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.heroLegend a {
+  color: var(--silk-dim);
+  text-decoration: none;
+}
+
+.heroLegend b {
+  color: var(--pad);
+}
+
+/* ============================================================ page layout */
+
+.layout {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 max(24px, 4vw);
+  border-top: 1px solid var(--edge);
+}
+
+/* ---------------------------------------------------------- contents trace */
+
+.nav {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100svh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 48px 12px 48px 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+.navToggle {
+  display: none;
+}
+
+.navList {
+  position: relative;
+}
+
+/* the trace every section sits on */
+.navList::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 30px;
+  left: 3px;
+  width: 1px;
+  background: var(--pad-soft);
+}
+
+.navList a {
+  display: block;
+  position: relative;
+  padding: 6px 0 6px 22px;
+  color: var(--silk-dim);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+/* the pad on the trace */
+.navList a::before {
+  content: "";
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--pad-soft);
+  background: var(--board);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.navList a:hover {
+  color: var(--silk);
+}
+
+.navList a[aria-current] {
+  color: var(--pad);
+}
+
+.navList a[aria-current]::before {
+  border-color: var(--pad);
+  background: var(--pad);
+}
+
+.level2 {
+  padding-left: 36px;
+}
+
+.level3 {
+  padding-left: 48px;
+  opacity: 0.85;
+}
+
+.navList a.level3::before {
+  top: 0.85em;
+  left: 1.5px;
+  width: 4px;
+  height: 4px;
+}
+
+.themeToggle {
+  margin-top: 28px;
+  margin-left: 22px;
+  padding: 7px 12px;
+  border: 1px solid var(--edge);
+  background: none;
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.themeToggle:hover {
+  border-color: var(--pad);
+  color: var(--pad);
+}
+
+/* ================================================================ content */
+
+.main {
+  max-width: 40rem;
+  padding: 48px 0 140px;
+}
+
+.h1,
+.h2,
+.h3 {
+  scroll-margin-top: 32px;
+}
+
+/* chapter */
+.h1 {
+  margin: 3.4em 0 1em;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 112;
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.main > .h1:first-child {
+  margin-top: 0;
+}
+
+.h1 .designator {
+  display: block;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--edge);
+  color: var(--pad);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+
+/* section */
+.h2 {
+  margin: 2.6em 0 0.7em;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 105;
+  font-weight: 600;
+  font-size: 1.32rem;
+  line-height: 1.25;
+}
+
+/* step */
+.h3 {
+  margin: 2.2em 0 0.6em;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 100;
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.h2 .designator,
+.h3 .designator {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 2px 7px;
+  border: 1px solid var(--pad-soft);
+  color: var(--pad);
+  font-family: var(--mono);
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  vertical-align: 2px;
+}
+
+/* ---------------------------------------------------------------- figures */
+
+.figures {
+  display: grid;
+  gap: 14px;
+  margin: 1.8em 0 2.2em;
+}
+
+.figures[data-columns="2"] {
+  grid-template-columns: 1fr 1fr;
+}
+
+.figures[data-columns="3"] {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.figure a {
+  display: block;
+  border: 1px solid var(--edge);
+  background: var(--surface);
+  line-height: 0;
+  transition: border-color 0.2s;
+}
+
+.figure a:hover {
+  border-color: var(--pad);
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* a row of photos reads as one row only if the frames match */
+.figures[data-columns="2"] .figure a,
+.figures[data-columns="3"] .figure a {
+  aspect-ratio: 4 / 3;
+}
+
+.figures[data-columns="2"] .figure img,
+.figures[data-columns="3"] .figure img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.figure figcaption {
+  margin-top: 9px;
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+}
+
+/* ------------------------------------------------------------- spec sheet */
+
+.spec {
+  margin: 1.8em 0 2.4em;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.specCaption {
+  margin: 0 0 14px;
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.spec table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.spec th {
+  padding: 0 18px 10px 0;
+  border-bottom: 1px solid var(--pad-soft);
+  color: var(--silk-dim);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.spec td {
+  padding: 13px 18px 13px 0;
+  border-bottom: 1px solid var(--edge);
+  vertical-align: top;
+}
+
+.spec td:first-child {
+  color: var(--silk-dim);
+  white-space: nowrap;
+}
+
+.spec td:nth-child(2) {
+  color: var(--silk);
+  font-weight: 500;
+}
+
+.spec td:last-child {
+  color: var(--silk-dim);
+  padding-right: 0;
+}
+
+/* --------------------------------------------------------------- lightbox */
+
+.lightbox {
+  margin: auto;
+  max-width: 96vw;
+  max-height: 96svh;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--silk);
+}
+
+.lightbox::backdrop {
+  background: rgb(4 7 6 / 88%);
+}
+
+.lightbox img {
+  display: block;
+  max-width: 92vw;
+  max-height: 84svh;
+  width: auto;
+  height: auto;
+  border: 1px solid var(--edge);
+}
+
+.lightbox figcaption {
+  margin-top: 12px;
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ============================================================== responsive */
+
+@media (max-width: 1040px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 40px;
+  }
+
+  .heroPlate {
+    --cap: 64svh;
+  }
+}
+
+@media (max-width: 720px) {
+  .callout {
+    pointer-events: none;
+  }
+
+  .calloutChip,
+  .callout::before {
+    display: none;
+  }
+
+  .heroLegend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* block flow, so the sticky bar below sticks to the page and not to its grid row */
+  .layout {
+    display: block;
+    padding-top: 0;
+  }
+
+  .nav {
+    z-index: 2;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    border-bottom: 1px solid var(--edge);
+    background: var(--board);
+  }
+
+  .navToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+    border: 0;
+    background: none;
+    color: var(--silk);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .navToggle::after {
+    content: "▾";
+    color: var(--pad);
+  }
+
+  .nav[data-open] .navToggle::after {
+    content: "▴";
+  }
+
+  .navList {
+    display: none;
+    max-height: 62svh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    padding-bottom: 20px;
+  }
+
+  .nav[data-open] .navList {
+    display: block;
+  }
+
+  .main {
+    padding: 36px 0 96px;
+  }
+
+  .h1,
+  .h2,
+  .h3 {
+    scroll-margin-top: 68px;
+  }
+
+  .figures[data-columns="2"],
+  .figures[data-columns="3"] {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =================================================================== print */
+
+@media print {
+  .hero {
+    min-height: 0;
+    page-break-after: always;
+  }
+
+  .callout,
+  .nav,
+  .lightbox {
+    display: none;
+  }
+
+  .layout {
+    display: block;
+    padding: 0;
+  }
+
+  .main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .h1,
+  .h2,
+  .h3 {
+    break-after: avoid;
+  }
+
+  .figure,
+  .spec {
+    break-inside: avoid;
+  }
+}

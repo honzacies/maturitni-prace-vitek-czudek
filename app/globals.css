@@ -1,0 +1,140 @@
+/*
+ * Palette taken from the subject: a populated circuit board. Dark solder mask,
+ * white silkscreen lettering, gold-plated contacts, dim copper traces.
+ */
+:root {
+  --board: #0b100e;
+  --surface: #131a17;
+  --raised: #1a2320;
+  --edge: #212c28;
+  --silk: #e8efea;
+  --silk-dim: #82948c;
+  --pad: #d8a13f;
+  --pad-soft: #6b5327;
+  --thumb: #2c3a35;
+  --cover-filter: saturate(0.78) contrast(1.1) brightness(0.96);
+
+  --display: var(--font-display), system-ui, sans-serif;
+  --body: var(--font-body), Georgia, serif;
+  --mono: var(--font-mono), ui-monospace, monospace;
+}
+
+/* The datasheet: printed, and readable on a washed-out projector. */
+:root[data-theme="light"] {
+  --board: #f4f5f4;
+  --surface: #ffffff;
+  --raised: #ffffff;
+  --edge: #dce0de;
+  --silk: #111713;
+  --silk-dim: #5c6a64;
+  --pad: #8f6410;
+  --pad-soft: #d8c9a6;
+  --thumb: #c3c9c6;
+  --cover-filter: saturate(0.85) contrast(1.02);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --board: #f4f5f4;
+    --surface: #ffffff;
+    --raised: #ffffff;
+    --edge: #dce0de;
+    --silk: #111713;
+    --silk-dim: #5c6a64;
+    --pad: #8f6410;
+    --pad-soft: #d8c9a6;
+    --thumb: #c3c9c6;
+    --cover-filter: saturate(0.85) contrast(1.02);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-color: var(--thumb) transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--board);
+  color: var(--silk);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--pad);
+}
+
+p {
+  margin: 0 0 1.1em;
+}
+
+strong {
+  font-weight: 600;
+}
+
+ul {
+  padding-left: 1.1em;
+}
+
+li {
+  margin-bottom: 0.6em;
+}
+
+li::marker {
+  color: var(--pad-soft);
+}
+
+figure {
+  margin: 0;
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--pad);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  :root {
+    --board: #fff;
+    --surface: #fff;
+    --raised: #fff;
+    --edge: #bbb;
+    --silk: #000;
+    --silk-dim: #555;
+    --pad: #000;
+    --pad-soft: #999;
+    --cover-filter: none;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-family: var(--mono);
+    font-size: 0.75em;
+    word-break: break-all;
+  }
+}

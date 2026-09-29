@@ -1,0 +1,1540 @@
+{
+  "meta": {
+    "school": "Střední škola, Jablunkov, příspěvková organizace",
+    "title": "Skladba Počítače",
+    "author": "Vítek Czudek",
+    "logo": {
+      "src": "image1.png",
+      "w": 305,
+      "h": 305
+    },
+    "fields": [
+      {
+        "label": "Studijní obor",
+        "value": "Informační technologie 18-20-M/01"
+      },
+      {
+        "label": "Třída",
+        "value": "4.I"
+      },
+      {
+        "label": "Školní rok",
+        "value": "2026/27"
+      }
+    ],
+    "cover": {
+      "src": "image2.jpeg",
+      "h": 1024,
+      "w": 768,
+      "caption": "Obr. 1 Zvolené komponenty"
+    }
+  },
+  "nav": [
+    {
+      "level": 1,
+      "id": "uvod",
+      "label": "ÚVOD"
+    },
+    {
+      "level": 1,
+      "id": "1-teoreticky-uvod-do-architektury-pc",
+      "label": "1 Teoretický úvod do architektury PC"
+    },
+    {
+      "level": 2,
+      "id": "1-1-zakladni-komponenty-systemu",
+      "label": "1.1 Základní komponenty systému"
+    },
+    {
+      "level": 2,
+      "id": "1-2-vyber-hardwaru-s-ohledem-na-kompatibilitu",
+      "label": "1.2 Výběr Hardwaru s ohledem na kompatibilitu"
+    },
+    {
+      "level": 1,
+      "id": "2-specifikace-zvolene-sestavy",
+      "label": "2 Specifikace zvolené sestavy"
+    },
+    {
+      "level": 2,
+      "id": "2-1-seznam-komponent",
+      "label": "2.1 Seznam komponent"
+    },
+    {
+      "level": 3,
+      "id": "2-1-1-zduvodneni-vyberu-dilu",
+      "label": "2.1.1 Zdůvodnění výběru dílů"
+    },
+    {
+      "level": 1,
+      "id": "3-prakticka-cast",
+      "label": "3 Praktická část"
+    },
+    {
+      "level": 2,
+      "id": "3-1-priprava-pracoviste-a-bezpecnostni-zasady",
+      "label": "3.1 Příprava pracoviště a bezpečnostní zásady"
+    },
+    {
+      "level": 2,
+      "id": "3-2-osazeni-zakladni-desky-komponenty-cpu-ssd-a-ram",
+      "label": "3.2 Osazení základní desky komponenty CPU, SSD a RAM"
+    },
+    {
+      "level": 3,
+      "id": "3-2-1-instalace-procesoru",
+      "label": "3.2.1 Instalace procesoru"
+    },
+    {
+      "level": 3,
+      "id": "3-2-2-montaz-m-2-ssd",
+      "label": "3.2.2 Montáž M.2 SSD"
+    },
+    {
+      "level": 3,
+      "id": "3-2-3-aplikace-teplovodive-pasty-a-chladice",
+      "label": "3.2.3 Aplikace teplovodivé pasty a chladiče"
+    },
+    {
+      "level": 3,
+      "id": "3-2-4-osazeni-ram",
+      "label": "3.2.4 Osazení RAM"
+    },
+    {
+      "level": 3,
+      "id": "3-2-5-instalace-zakladni-desky-do-case",
+      "label": "3.2.5 Instalace základní desky do Case"
+    },
+    {
+      "level": 3,
+      "id": "3-2-6-instalace-napajeciho-zdroje-psu",
+      "label": "3.2.6 Instalace napájecího zdroje (PSU)"
+    },
+    {
+      "level": 3,
+      "id": "3-2-7-montaz-graficke-karty",
+      "label": "3.2.7 Montáž grafické karty"
+    },
+    {
+      "level": 3,
+      "id": "3-2-8-montaz-sitove-karty",
+      "label": "3.2.8 Montáž Síťové karty"
+    },
+    {
+      "level": 3,
+      "id": "3-2-9-instalace-opticke-mechaniky-cd-dvd-br",
+      "label": "3.2.9 Instalace optické mechaniky (CD, DVD, BR)"
+    },
+    {
+      "level": 3,
+      "id": "3-2-10-zapojeni-napajeci-kabelaze-do-psu",
+      "label": "3.2.10 Zapojení napájecí kabeláže do PSU"
+    },
+    {
+      "level": 3,
+      "id": "3-2-11-propojeni-ovladacich-prvku-skrine-predniho-panelu",
+      "label": "3.2.11 Propojení ovládacích prvků skříně (Předního panelu)"
+    },
+    {
+      "level": 3,
+      "id": "3-2-12-organizace-kabelaze-a-uzavreni-skrine-cable-management",
+      "label": "3.2.12 Organizace kabeláže a uzavření skříně (Cable Management)"
+    },
+    {
+      "level": 3,
+      "id": "3-2-13-priprava-instalacniho-media-pomoci-nastroje-ventoy",
+      "label": "3.2.13 Příprava instalačního média pomocí nástroje Ventoy"
+    },
+    {
+      "level": 1,
+      "id": "4-konfigurace-a-diagnostika-systemu",
+      "label": "4 KONFIGURACE A DIAGNOSTIKA SYSTÉMU"
+    },
+    {
+      "level": 2,
+      "id": "4-1-prvni-spusteni-a-nastaveni-uefi-bios",
+      "label": "4.1 První spuštění a nastavení UEFI/BIOS"
+    },
+    {
+      "level": 3,
+      "id": "4-1-1-diagnostika-pameti-memtest86",
+      "label": "4.1.1 Diagnostika pamětí (Memtest86)"
+    },
+    {
+      "level": 3,
+      "id": "4-1-2-instalace-operacniho-systemu-windows",
+      "label": "4.1.2 Instalace operačního systému Windows"
+    },
+    {
+      "level": 3,
+      "id": "4-1-3-konfigurace-virtualizacniho-prostredi-windows",
+      "label": "4.1.3 Konfigurace virtualizačního prostředí (Windows)"
+    },
+    {
+      "level": 3,
+      "id": "4-1-4-instalace-operacniho-systemu-linux",
+      "label": "4.1.4 Instalace operačního systému Linux"
+    },
+    {
+      "level": 3,
+      "id": "4-1-5-konfigurace-virtualizacnio-rozhrani-linux",
+      "label": "4.1.5 Konfigurace virtualizačnío rozhraní (Linux)"
+    },
+    {
+      "level": 2,
+      "id": "4-2-finalni-kontrola-a-stress-test-stability",
+      "label": "4.2 Finální kontrola a stress test stability"
+    },
+    {
+      "level": 1,
+      "id": "zaver",
+      "label": "ZÁVĚR"
+    },
+    {
+      "level": 1,
+      "id": "seznam-pouzitych-zdroju",
+      "label": "SEZNAM POUŽITÝCH ZDROJŮ"
+    },
+    {
+      "level": 1,
+      "id": "seznam-priloh",
+      "label": "SEZNAM PŘÍLOH"
+    }
+  ],
+  "blocks": [
+    {
+      "kind": "heading",
+      "level": 1,
+      "id": "uvod",
+      "label": "ÚVOD"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Cílem této maturitní práce je podrobný popis procesu návrhu, výběru komponent a samotné fyzické realizace (sestavení) osobního počítače. V dnešní digitální době je schopnost porozumět hardwarové struktuře klíčová nejen pro profesionály v IT, ale i pro pokročilé uživatele, kteří vyžadují systém optimalizovaný pro specifické potřeby."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Sestavení vlastního počítače nabízí oproti nákupu hotových sestav řadu výhod, zejména lepší poměr ceny a výkonu, možnost výběru kvalitnějších komponent a snadnou budoucí rozšiřitelnost. V teoretické části práce se zaměřím na charakteristiku jednotlivých dílů a jejich technologické standardy. Praktická část pak bude formou detailního návodu provázet čtenáře celým procesem montáže, od vybalení komponent až po první úspěšné spuštění systému."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Zvolil jsem si toto téma, protože mě oblast hardwaru dlouhodobě zajímá a chtěl jsem prokázat dovednosti získané během studia na Střední škole v Jablunkově při práci s moderními technologiemi. Práce je koncipována tak, aby sloužila jako srozumitelný manuál pro každého, kdo se rozhodne pro stavbu vlastního PC."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 1,
+      "id": "1-teoreticky-uvod-do-architektury-pc",
+      "label": "1 Teoretický úvod do architektury PC"
+    },
+    {
+      "kind": "heading",
+      "level": 2,
+      "id": "1-1-zakladni-komponenty-systemu",
+      "label": "1.1 Základní komponenty systému"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Osobní počítač je komplexní zařízení, které pracuje na principu spolupráce mnoha hardwarových podsystémů. Základem je základní deska, která slouží jako hlavní propojovací článek. Do ní se osazuje procesor (CPU), který vykonává veškeré instrukce, a operační paměť (RAM), která slouží k dočasnému ukládání běžících procesů. Dalším nezbytným prvkem je grafická karta, úložiště dat (v moderních systémech výhradně SSD) a napájecí zdroj, který transformuje střídavé napětí ze sítě na stejnosměrné hodnoty potřebné pro elektroniku."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 2,
+      "id": "1-2-vyber-hardwaru-s-ohledem-na-kompatibilitu",
+      "label": "1.2 Výběr Hardwaru s ohledem na kompatibilitu"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Při návrhu sestavy je nejdůležitějším faktorem kompatibilita. Musíme brát v potaz především socket (patici) procesoru a čipset základní desky. Dále je nutné sladit generaci pamětí RAM (DDR4 vs. DDR5) a zajistit, aby napájecí zdroj disponoval dostatečným výkonem a správnými konektory pro grafickou kartu. Opomenout nelze ani rozměry skříně, do které se musí vejít jak základní deska (standardy ATX, mATX), tak délka grafické karty a výška chladiče procesoru."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 1,
+      "id": "2-specifikace-zvolene-sestavy",
+      "label": "2 Specifikace zvolené sestavy"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "V této kapitole uvádím konkrétní hardwarovou specifikaci sestavy, kterou jsem v rámci praktické části práce realizoval."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 2,
+      "id": "2-1-seznam-komponent",
+      "label": "2.1 Seznam komponent"
+    },
+    {
+      "kind": "table",
+      "caption": "Tabulka 1 Seznam zvolených komponent",
+      "head": [
+        "Komponenta",
+        "Model",
+        "Parametry"
+      ],
+      "rows": [
+        [
+          "Procesor (CPU)",
+          "AMD Ryzen 5 3600",
+          "6 jader – až 4,2 GHz"
+        ],
+        [
+          "Základní deska",
+          "ASUS PRIME A520M-K",
+          "mATX – AM4"
+        ],
+        [
+          "Paměť (RAM)",
+          "HYPERX PREDATOR",
+          "DDR4 – 16GB 2400MHz"
+        ],
+        [
+          "Grafika (GPU)",
+          "Radeon RX 480",
+          "8GB GDDR5"
+        ],
+        [
+          "SSD Disk",
+          "Samsung 970EVO Plus",
+          "1TB – 3500 MB/S"
+        ],
+        [
+          "Zdroj (PSU)",
+          "SilentiumPC Vero M3",
+          "700W Bronze"
+        ],
+        [
+          "Síťová karta",
+          "Tp-link AX3000",
+          "Wifi 6 – Bluetooth 5.2"
+        ]
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "2-1-1-zduvodneni-vyberu-dilu",
+      "label": "2.1.1 Zdůvodnění výběru dílů"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Výběr byl veden snahou o maximální efektivitu v poměru cena/výkon. Procesor byl zvolen pro svou univerzálnost, základní deska pro svůj poměr: cena/výkon a grafická karta pro dostatečný výkon v moderních hrách za dobrou cenu."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 1,
+      "id": "3-prakticka-cast",
+      "label": "3 Praktická část"
+    },
+    {
+      "kind": "heading",
+      "level": 2,
+      "id": "3-1-priprava-pracoviste-a-bezpecnostni-zasady",
+      "label": "3.1 Příprava pracoviště a bezpečnostní zásady"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Před zahájením práce bylo nutné zajistit vhodné prostředí. Pracoviště musí být čisté a antistatické. Statická elektřina (ESD) je největším nepřítelem hardware, proto jsem během práce dbal na pravidelné uzemňování. Připravil jsem si potřebné nářadí – zejména křížový šroubovák velikosti PH2, stahovací pásky pro cable management a teplovodivou pastu."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 2,
+      "id": "3-2-osazeni-zakladni-desky-komponenty-cpu-ssd-a-ram",
+      "label": "3.2 Osazení základní desky komponenty CPU, SSD a RAM"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Pro zajištění pohodlné montáže a zamezení mechanického poškození jsem se rozhodl osadit většinu komponent na základní desku ještě před jejím vložením do skříně."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-1-instalace-procesoru",
+      "label": "3.2.1 Instalace procesoru"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Otevřel jsem aretační páčku patice a procesor opatrně vložil tak, aby orientační trojúhelník na CPU souhlasil se značkou na patici. Po dosednutí jsem páčku zajistil."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image3.jpeg",
+          "h": 529,
+          "w": 471,
+          "caption": "Obr. 2 patice"
+        },
+        {
+          "src": "image4.jpeg",
+          "h": 526,
+          "w": 412,
+          "caption": "Obr. 3 vložený procesor"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-2-montaz-m-2-ssd",
+      "label": "3.2.2 Montáž M.2 SSD"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Disk jsem zasunul do příslušného slotu pod úhlem cca 30 stupňů a zajistil drobným šroubkem k distančnímu sloupku na desce."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image5.jpeg",
+          "h": 689,
+          "w": 517
+        }
+      ],
+      "caption": "Obr. 4 SSD disk"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-3-aplikace-teplovodive-pasty-a-chladice",
+      "label": "3.2.3 Aplikace teplovodivé pasty a chladiče"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Aplikace pasty:",
+          "bold": true
+        },
+        {
+          "text": " Na IHS procesoru jsem nanesl přiměřené množství teplovodivé pasty „Arctic MX-4“. Pasta vyplňuje mikroskopické nerovnosti mezi plochami a zlepšuje chladivý efekt."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Upevnění chladiče:",
+          "bold": true
+        },
+        {
+          "text": " Na chladič jsem přidělal pomoci kovových ručiček v balení větrák a potom opatrně na procesor přiložil chladič který jsem rovnoměrně přišrouboval k desce. Dotahoval jsem šrouby \"do kříže\", aby byl přítlak rovnoměrný."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image6.jpeg",
+          "h": 525,
+          "w": 394,
+          "caption": "Obr. 5 chladící pasta"
+        },
+        {
+          "src": "image7.jpeg",
+          "h": 526,
+          "w": 394,
+          "caption": "Obr. 6 Vybalený chladič"
+        },
+        {
+          "src": "image8.jpeg",
+          "h": 520,
+          "w": 390,
+          "caption": "Obr. 7 Nainstalovaný chladič"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-4-osazeni-ram",
+      "label": "3.2.4 Osazení RAM"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Jako poslední krok před vložením desky do skříně jsem zvolil instalaci modulu RAM. U zvoleného typu chladiče tento postup umožnil bezproblémový přístup k aretačním pojistkám slotů."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Vložení RAM:",
+          "bold": true
+        },
+        {
+          "text": " Modul jsem vložil do slotů 2 tak, aby došlo k zacvaknutí pojistek."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Kontrola:",
+          "bold": true
+        },
+        {
+          "text": " Prověřil jsem, zda chladič neblokuje modul RAM a zda je vše pevně usazeno."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image9.jpeg",
+          "h": 693,
+          "w": 520
+        }
+      ],
+      "caption": "Obr. 8 Osazená RAM"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-5-instalace-zakladni-desky-do-case",
+      "label": "3.2.5 Instalace základní desky do Case"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Po kompletní přípravě základní desky následoval její přesun do case počítače. Tento krok vyžaduje trpělivost a přesnost, aby nedošlo k poškození spodní strany desky o distanční sloupky."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Příprava skříně:",
+          "bold": true
+        },
+        {
+          "text": " Nejprve jsem ověřil pozice distančních sloupků. Ty musí přesně odpovídat otvorům v základní desce. Nadbytečné sloupky jsem odstranil, aby nepřekážely."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Absence I/O shieldu:",
+          "bold": true
+        },
+        {
+          "text": " Na výslovné přání koncového uživatele nebyla instalována zadní prachová krytka (I/O shield). Toto rozhodnutí bylo učiněno z důvodu specifických požadavků na proudění vzduchu v zadní části case. – Nevýhodou je ale větší prachový proud do case."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Upevnění desky:",
+          "bold": true
+        },
+        {
+          "text": " Desku jsem opatrně položil na sloupky a zajistil křížovými šrouby. Šrouby jsem dotahoval s citem, aby nedošlo k mikrotrhlinám v PCB."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image10.jpeg",
+          "h": 700,
+          "w": 525
+        }
+      ],
+      "caption": "Obr. 9 Deska uchycená v PC case"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-6-instalace-napajeciho-zdroje-psu",
+      "label": "3.2.6 Instalace napájecího zdroje (PSU)"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Zdroj je srdcem systému, které dodává energii všem komponentám. Zvolil jsem montáž do spodní části skříně, což je dnes standard pro lepší stabilitu a chlazení."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Orientace zdroje:",
+          "bold": true
+        },
+        {
+          "text": " Zdroj jsem do skříně vložil ventilátorem směrem dolů. Skříň je v této části vybavena prachovým filtrem, což umožňuje zdroji nasávat studený vzduch přímo zvenčí a neohřívat se vzduchem zevnitř skříně."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Zapojení hlavních větví:",
+          "bold": true
+        },
+        {
+          "text": " Ihned po upevnění zdroje jsem protáhl hlavní 24-pinový kabel pro napájení desky a 8-pinový kabel pro procesor skrze otvory pro cable management."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image11.jpeg",
+          "h": 642,
+          "w": 481
+        }
+      ],
+      "caption": "Obr.10 Instalace zdroje"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-7-montaz-graficke-karty",
+      "label": "3.2.7 Montáž grafické karty"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "V této fázi jsem přistoupil k osazení grafické karty do PCIe slotu."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Grafická karta (GPU):",
+          "bold": true
+        },
+        {
+          "text": " Odjistil jsem pojistku primárního PCIe x16 slotu, odstranil zadní krytky case a opatrně do příslušného slotu kartu zasunul. Po slyšitelném zacvaknutí jsem kartu přišrouboval k rámu skříně, aby nedocházelo k jejímu prohýbání (sagging)."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Napájení GPU:",
+          "bold": true
+        },
+        {
+          "text": " Do grafické karty jsem zapojil příslušné PCIe napájecí kabely ze zdroje."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image12.jpeg",
+          "h": 614,
+          "w": 460,
+          "caption": "Obr. 11 Příprava na vložení GPU."
+        },
+        {
+          "src": "image13.jpeg",
+          "h": 621,
+          "w": 465,
+          "caption": "Obr. 12 Vložení GPU do PCB"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-8-montaz-sitove-karty",
+      "label": "3.2.8 Montáž Síťové karty"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Pro rozšíření konektivity a zajištění nezávislého síťového rozhraní (např. pro oddělení síťového provozu nebo servisní účely) byl do sestavy přidán dedikovaný síťový adaptér do slotu PCIe."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Výběr slotu:",
+          "bold": true
+        },
+        {
+          "text": " Zvolil jsem volný slot PCIe x1 umístěný pod hlavní grafickou kartou. Bylo nutné vyjmout plechovou záslepku na zadní straně skříně."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Osazení karty:",
+          "bold": true
+        },
+        {
+          "text": " Kartu jsem opatrně zasunul do slotu a přitlačil, dokud plně nedosedla. Následně jsem ji zajistil šroubkem k rámu skříně."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Kolize s chlazením:",
+          "bold": true
+        },
+        {
+          "text": " Při instalaci jsem kontroloval, zda karta nebrání nasávání vzduchu ventilátory grafické karty. I přes malou vzdálenost je průtok vzduchu dostatečný pro obě komponenty."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image14.jpeg",
+          "h": 746,
+          "w": 559,
+          "caption": "Obr. 13 Vybalení síťové karty."
+        },
+        {
+          "src": "image15.jpeg",
+          "h": 769,
+          "w": 577,
+          "caption": "Obr. 14 Vložení síťové karty do PCB"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-9-instalace-opticke-mechaniky-cd-dvd-br",
+      "label": "3.2.9 Instalace optické mechaniky (CD, DVD, BR)"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Ačkoliv moderní trendy směřují k distribuci softwaru skrze cloudová úložiště a USB média, v této sestavě byla na základě specifických požadavků na archivaci dat a práci se staršími médii integrována interní optická mechanika."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Příprava case:",
+          "bold": true
+        },
+        {
+          "text": " Nejprve bylo nutné z čelního panelu skříně vyjmout plastovou záslepku 5,25\" pozice. Tato operace vyžadovala opatrné vycvaknutí pojistek z vnitřní strany přední masky."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Mechanické usazení:",
+          "bold": true
+        },
+        {
+          "text": " Mechaniku jsem zasunul do horní pozice. Je důležité, aby čelo mechaniky bylo v jedné rovině s panelem skříně (tzv. flush mount). Mechaniku jsem zajistil křížovými šroubky do bočních kolejnic case."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Datové a napájecí rozhraní:",
+          "bold": true
+        },
+        {
+          "text": " Pro přenos dat jsem využil rozhraní SATA III (6 Gb/s). Kabel jsem zapojil do portu na základní desce a druhý konec do mechaniky. Napájení je realizováno standardním SATA konektorem ze zdroje."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image16.jpeg",
+          "h": 766,
+          "w": 575,
+          "caption": "Obr. 15 Instalace mechaniky"
+        },
+        {
+          "src": "image17.jpeg",
+          "h": 766,
+          "w": 575,
+          "caption": "Obr. 16 Zapojení mechaniky"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-10-zapojeni-napajeci-kabelaze-do-psu",
+      "label": "3.2.10 Zapojení napájecí kabeláže do PSU"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Po mechanickém upevnění všech komponent následovalo propojení s napájecím zdrojem. Tento krok vyžaduje preciznost – nedokonale zasunutý konektor může vést k jiskření, zvýšenému přechodovému odporu a v krajním případě k požáru."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Napájení desky (ATX 24-pin):",
+          "bold": true
+        },
+        {
+          "text": " Hlavní větev jsem zapojil do pravé části desky. Konektor vyžaduje značný přítlak, dokud pojistka necvakne."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Napájení procesoru (EPS 8-pin):",
+          "bold": true
+        },
+        {
+          "text": " Kabel jsem protáhl skrytým otvorem v horním rohu skříně. Toto napájení dodává energii přímo napájecí kaskádě (VRM) procesoru."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Napájení grafické karty (PCIe):",
+          "bold": true
+        },
+        {
+          "text": " Použil jsem samostatnou větev zdroje pro zajištění maximální stability při plném grafickém výkonu."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image18.jpeg",
+          "h": 717,
+          "w": 538
+        }
+      ],
+      "caption": "Obr. 17 Zapojení napájení PCB"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-11-propojeni-ovladacich-prvku-skrine-predniho-panelu",
+      "label": "3.2.11 Propojení ovládacích prvků skříně (Předního panelu)"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Tato fáze je často označována za \"nejpiplavější\" část montáže. Skupina tenkých vodičů propojuje tlačítka a diody na skříni se základní deskou."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "System Panel Header:",
+          "bold": true
+        },
+        {
+          "text": " Podle manuálu jsem zapojil konektory Power SW, Reset SW, HDD LED a Power LED. U LED diod jsem dbal na polaritu, protože dioda je polovodič, který při opačném zapojení nesvítí."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Front USB a Audio:",
+          "bold": true
+        },
+        {
+          "text": " Propojil jsem kabel pro přední USB 3.0 porty (modrý konektor) a HD Audio pro přední jacky na sluchátka."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image19.jpeg",
+          "h": 777,
+          "w": 583,
+          "caption": "Obr. 18 zapojení systém panel headeru"
+        },
+        {
+          "src": "image20.jpeg",
+          "h": 777,
+          "w": 583,
+          "caption": "Obr. 19 zapojení USB"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-12-organizace-kabelaze-a-uzavreni-skrine-cable-management",
+      "label": "3.2.12 Organizace kabeláže a uzavření skříně (Cable Management)"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Před finálním zakrytováním jsem provedl tzv. cable management. Ten má dva hlavní účely: estetiku a optimalizaci průtoku vzduchu (airflow)."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Vedení kabelů:",
+          "bold": true
+        },
+        {
+          "text": " Všechny přebytečné délky kabelů jsem stáhl stahovacími páskami v zadní části skříně (za deskou), kde nepřekážejí."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Airflow:",
+          "bold": true
+        },
+        {
+          "text": " V hlavní komoře jsem kabely uspořádal tak, aby nezasahovaly do proudu vzduchu od předních ventilátorů směrem k chladiči procesoru."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Závěrečná kontrola:",
+          "bold": true
+        },
+        {
+          "text": " Protočil jsem všechny ventilátory prstem, abych se ujistil, že o žádný z nich neškrtá uvolněný kabel. Poté jsem nasadil a zajistil bočnice."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image21.jpeg",
+          "h": 772,
+          "w": 579
+        }
+      ],
+      "caption": "Obr. 20 Cable management"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "3-2-13-priprava-instalacniho-media-pomoci-nastroje-ventoy",
+      "label": "3.2.13 Příprava instalačního média pomocí nástroje Ventoy"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Pro instalaci softwaru jsem zvolil moderní open-source nástroj Ventoy, který nahrazuje starší a méně flexibilní metody tvorby bootovacích USB disků."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Princip Ventoy:",
+          "bold": true
+        },
+        {
+          "text": " Na USB disk se nainstaluje pouze zavaděč. Uživatel pak na zbytek disku kopíruje čisté ISO soubory jako na běžnou flashku. Ventoy si je při startu sám najde a nabídne menu."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Příprava:",
+          "bold": true
+        },
+        {
+          "text": " Na disk jsem nahrál ISO Windows 11 a speciální edici Memtest86."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Výhoda:",
+          "bold": true
+        },
+        {
+          "text": " Pokud se v budoucnu změní verze systému, stačí jen přepsat soubor na disku bez nutnosti formátování."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image22.jpeg",
+          "h": 837,
+          "w": 628
+        }
+      ],
+      "caption": "Obr. 21 Ventoy menu"
+    },
+    {
+      "kind": "heading",
+      "level": 1,
+      "id": "4-konfigurace-a-diagnostika-systemu",
+      "label": "4 KONFIGURACE A DIAGNOSTIKA SYSTÉMU"
+    },
+    {
+      "kind": "heading",
+      "level": 2,
+      "id": "4-1-prvni-spusteni-a-nastaveni-uefi-bios",
+      "label": "4.1 První spuštění a nastavení UEFI/BIOS"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Po kontrole všech spojů jsem počítač poprvé spustil. Okamžitě jsem vstoupil do prostředí UEFI (BIOS)."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Detekce:",
+          "bold": true
+        },
+        {
+          "text": " Ověřil jsem, že systém vidí CPU, obě RAM, SSD i nově osazenou mechaniku."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Teploty:",
+          "bold": true
+        },
+        {
+          "text": " Sledoval jsem nárůst teploty CPU v BIOSu. Teplota se ustálila na stabilních 32 °C."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Boot Priority:",
+          "bold": true
+        },
+        {
+          "text": " Jako první bootovací zařízení jsem zvolil USB disk Ventoy."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "4-1-1-diagnostika-pameti-memtest86",
+      "label": "4.1.1 Diagnostika pamětí (Memtest86)"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Protože byly použity starší RAM, bylo nezbytné provést zátěžový test ještě před instalací Windows."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Průběh:",
+          "bold": true
+        },
+        {
+          "text": " Z menu Ventoy jsem spustil Memtest86. Test probíhal ve dvou cyklech (pass)."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Validace:",
+          "bold": true
+        },
+        {
+          "text": " Po 50 minutách test nahlásil \"0 errors\", což potvrdilo, že starší moduly jsou v perfektní kondici."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image23.jpeg",
+          "h": 923,
+          "w": 692
+        }
+      ],
+      "caption": "Obr. 22 Memtest86"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "4-1-2-instalace-operacniho-systemu-windows",
+      "label": "4.1.2 Instalace operačního systému Windows"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Pro tento počítač byl zvolen a nainstalován operační systém Windows 11, který byl následně aktualizován na nejnovější dostupnou verzi od společnosti Microsoft. Jelikož se jednalo o instalaci na zcela čistý a nepoužitý disk, jako instalační médium byl využíván USB flash disk. Ten byl připraven pomocí bootovacího softwaru Ventoy, což umožnilo snadné zavedení instalačního ISO obrazu. Po úspěšném nabootování z USB disku byl vybrán příslušný instalační soubor systému Windows a zahájena příprava k instalaci. V dalším kroku byl vybrán cílový disk pro umístění systému. Volba padla na rychlý NVMe SSD disk zapojený přímo do M.2 slotu na základní desce. Po potvrzení výběru disku a spuštění samotného instalačního procesu proběhlo automatické rozbalení a kopírování systémových souborů až do úspěšného dokončení základní fáze instalace."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image24.jpeg",
+          "h": 636,
+          "w": 477
+        }
+      ],
+      "caption": "Obr. 23 Instalace Windows"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "4-1-3-konfigurace-virtualizacniho-prostredi-windows",
+      "label": "4.1.3 Konfigurace virtualizačního prostředí (Windows)"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Po prvním úspěšném spuštění systému Windows 11 jsem přešel k jeho kompletnímu zprovoznění a optimalizaci pro běžné používání. Jako první krok jsem otevřel nástroj Windows Update a nechal stáhnout i nainstalovat všechny dostupné systémové záplaty a bezpečnostní aktualizace. Následně jsem zkontroloval Správce zařízení a doinstaloval chybějící ovladače pro základní desku a grafickou kartu přímo ze stránek výrobců, čímž jsem zajistil maximální výkon NVMe disku i grafického adaptéru."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "V rámci finální konfigurace jsem provedl základní úpravy systému:"
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "items": [
+        [
+          {
+            "text": "Přizpůsobení prostředí (GUI):",
+            "bold": true
+          },
+          {
+            "text": " Nastavil jsem požadované rozlišení a obnovovací frekvenci monitoru, upravil hlavní panel a zvolil tmavý motiv."
+          }
+        ],
+        [
+          {
+            "text": "Kontrola konektivity a periferií:",
+            "bold": true
+          },
+          {
+            "text": " Ověřil jsem plnou funkčnost sítě (Wi-Fi/LAN), zvukového výstupu a připojených USB zařízení."
+          }
+        ],
+        [
+          {
+            "text": "Instalace základního softwaru:",
+            "bold": true
+          },
+          {
+            "text": " Nainstaloval jsem internetový prohlížeč a základní uživatelské aplikace."
+          }
+        ]
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image3.png",
+          "w": 850,
+          "h": 478
+        }
+      ],
+      "caption": "Obr. 24 Virtuální rozhraní Windows"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "4-1-4-instalace-operacniho-systemu-linux",
+      "label": "4.1.4 Instalace operačního systému Linux"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Pro svůj počítač jsem nainstaloval také druhý operační systém – Linux. Ještě před samotnou instalací jsem musel zvolit konkrétní distribuci. Vzhledem k jejich velkému množství jsem se rozhodl pro Linux Ubuntu. Důvodem mé volby byla především přívětivost a jednoduchost grafického rozhraní (GUI), které je navrženo tak, aby bylo intuitivní pro uživatele přecházející ze systému Windows. Při samotné instalaci jsem postupoval obdobně jako u Windows. Jako instalační médium jsem využil USB flash disk s bootovacím softwarem Ventoy, ze kterého jsem spustil instalační obraz Ubuntu. Systém jsem instaloval na stejný rychlý NVMe SSD disk. Před samotným zahájením instalace jsem disk kompletně vyčistil a připravil. Po potvrzení výběru disku proběhla instalace bez problémů, systém se úspěšně dokončil a byl ihned připraven k plnému použití."
+        }
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image4.png",
+          "w": 1179,
+          "h": 884
+        }
+      ],
+      "caption": "Obr. 25 Instalace Linux Ubuntu"
+    },
+    {
+      "kind": "heading",
+      "level": 3,
+      "id": "4-1-5-konfigurace-virtualizacnio-rozhrani-linux",
+      "label": "4.1.5 Konfigurace virtualizačnío rozhraní (Linux)"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Ihned po prvním přihlášení do systému Ubuntu jsem zahájil jeho zprovoznění kompletně přes grafické rozhraní (GUI), bez nutnosti používat příkazovou řádku. Jako první krok jsem spustil grafickou aplikaci Správce aktualizací, která automaticamente vyhledala nejnovější verze systémových balíčků a aplikací. Všechny dostupné aktualizace jsem jednoduše potvrdil a nechal nainstalovat jedním kliknutím. Dále jsem přešel do hlavní aplikace Nastavení do sekce Dodatečné ovladače, kde jsem ověřil a zapnul doporučené ovladače pro můj hardware."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Proces zprovoznění jsem dokončil finálním přizpůsobením prostředí:"
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "items": [
+        [
+          {
+            "text": "Úprava plochy:",
+            "bold": true
+          },
+          {
+            "text": " V nastavení vzhledu jsem si upravil chování a pozici bočního panelu (Dock), nastavil rozlišení monitoru a zvolil preferovaný motiv."
+          }
+        ],
+        [
+          {
+            "text": "Kontrola funkčnosti:",
+            "bold": true
+          },
+          {
+            "text": " V grafickém prostředí jsem vyzkoušel funkčnost internetového prohlížeče, zvukového výstupu a české klávesnice."
+          }
+        ]
+      ]
+    },
+    {
+      "kind": "figures",
+      "images": [
+        {
+          "src": "image2.png",
+          "w": 1179,
+          "h": 884
+        }
+      ],
+      "caption": "Obr. 26 Virtuální rozhraní Linux Ubuntu"
+    },
+    {
+      "kind": "heading",
+      "level": 2,
+      "id": "4-2-finalni-kontrola-a-stress-test-stability",
+      "label": "4.2 Finální kontrola a stress test stability"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Po kompletní instalaci softwaru bylo nutné ověřit stabilitu systému v extrémních podmínkách. Tento krok je nezbytný pro odhalení případných skrytých vad v chlazení nebo napájení."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Zátěžový test CPU (Cinebench):",
+          "bold": true
+        },
+        {
+          "text": " Provedl jsem několik cyklů vykreslování scény, abych procesor vytížil na 100 %. Sledoval jsem maximální teplotu, která nepřesáhla 72 °C, což značí dostatečnou rezervu chlazení."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Zátěžový test GPU (FurMark):",
+          "bold": true
+        },
+        {
+          "text": " Grafickou kartu jsem nechal běžet v zátěžovém testu po dobu 30 minut. Kontroloval jsem stabilitu obrazu a hlučnost ventilátorů. Karta pracovala stabilně bez artefaktů v obraze."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Kontrola napětí:",
+          "bold": true
+        },
+        {
+          "text": " Pomocí utility HWMonitor jsem sledoval stabilitu napěťových větví (12V, 5V, 3.3V) ze zdroje. Hodnoty vykazovaly minimální kolísání i při plné zátěži celé sestavy."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 1,
+      "id": "zaver",
+      "label": "ZÁVĚR"
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Předložená maturitní práce se komplexně zabývala procesem návrhu, hardwarové realizace a následné softwarové validace osobního počítače. Hlavním cílem projektu bylo vytvořit stabilní, výkonnou a tichou pracovní stanici, která by reflektovala moderní standardy IT a zároveň splňovala specifické uživatelské požadavky na archivaci dat a rozšířenou síťovou konektivitu."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "V teoretické části práce byly podrobně rozebrány parametry jednotlivých komponent, jejich vzájemná kompatibilita a technologický vývoj v oblasti sběrnic a úložných zařízení. Tyto teoretické poznatky tvořily nezbytný pilíř pro praktickou část, kde byl kladen maximální důraz na technickou preciznost a čistotu provedení (tzv. clean build). Během samotné montáže jsem se musel vypořádat s několika praktickými výzvami, jako byla instalace optické mechaniky do moderní case, nebo integrace přídavné síťové karty bez negativního ovlivnění airflow grafické karty."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Velmi přínosnou částí projektu byla diagnostická fáze. Použití nástroje Memtest86 mi umožnilo exaktně potvrdit integritu starších paměťových modulů, čímž jsem eliminoval riziko budoucí nestability systému. Implementace zavaděče Ventoy se ukázala jako vysoce efektivní řešení pro moderní správu systémových a servisních obrazů disků. Tyto kroky přesahují rámec běžné uživatelské montáže a řadí tento projekt na úroveň profesionální servisní přípravy."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Vlastní realizace maturitní práce mi přinesla nejen upevnění praktických dovedností, ale především hlubší pochopení provázanosti hardwaru a softwaru. Naučil jsem se metodicky postupovat při řešení technických konfliktů a kriticky hodnotit výsledky diagnostických testů. Tato zkušenost je pro mě klíčová z hlediska mého dalšího profesního rozvoje a budoucího studia v oblasti informačních technologií."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Lze konstatovat, že všechny stanovené cíle byly bezezbytku naplněny. Výsledná sestava je plně funkční, vykazuje vynikající teplotní charakteristiky i při dlouhodobé zátěži a je softwarově plně oživena. Práce jako celek může sloužit jako metodický návod pro studenty nižších ročníků nebo zájemce z řad laické veřejnosti, kteří hledají návod na stavbu PC s důrazem na hloubkovou kontrolu komponent."
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 1,
+      "id": "seznam-pouzitych-zdroju",
+      "label": "SEZNAM POUŽITÝCH ZDROJŮ"
+    },
+    {
+      "kind": "list",
+      "items": [
+        [
+          {
+            "text": "MAXON COMPUTER GMBH. Cinebench R23 Benchmark Guide. [online]. Friedrichsdorf, Německo, 2023 [cit. 2024-05-11] Dostupné z:"
+          },
+          {
+            "text": " "
+          },
+          {
+            "text": "https:/www.maxton.net/en/cinebench",
+            "href": "https://www.maxton.net/en/cinebench"
+          }
+        ],
+        [
+          {
+            "text": "ASUSTEK COMPUTER INC. TUF GAMING A520M-K User’s Manual (English Edition). [online]. 2020 [cit. 2024-05-11]. Dostupné z:"
+          },
+          {
+            "text": " "
+          },
+          {
+            "text": "https://www.asus.com/cz/support/",
+            "href": "https://www.asus.com/cz/support/"
+          }
+        ],
+        [
+          {
+            "text": "MICROSOFT CORPORATION. Windows 11 Installation and Deployment Documentation. [online]. 2024 [cit. 2024-05-11]. Dostupné z:"
+          },
+          {
+            "text": " "
+          },
+          {
+            "text": "https://learn.microsoft.com/cs-cz/windows-hardware/manufacture/desktop/",
+            "href": "https://learn.microsoft.com/cs-cz/windows-hardware/manufacture/desktop/"
+          }
+        ],
+        [
+          {
+            "text": "PASSMARK SOFTWARE. MemTest86 User's Guide: Diagnostic tool for RAM. [online]. 2024 [cit. 2024-05-11]. Dostupné z: "
+          },
+          {
+            "text": "https://www.memtest86.com/",
+            "href": "https://www.memtest86.com/"
+          }
+        ],
+        [
+          {
+            "text": "VENTOY. Ventoy Documentation: Multiboot USB Solution. [online]. 2024 [cit. 2024-05-11]. Dostupné z: "
+          },
+          {
+            "text": "https://www.ventoy.net/",
+            "href": "https://www.ventoy.net/"
+          }
+        ]
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "content": [
+        {
+          "text": "Poz.: příklad možných zdrojů"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 1,
+      "id": "seznam-priloh",
+      "label": "SEZNAM PŘÍLOH"
+    },
+    {
+      "kind": "list",
+      "items": [
+        [
+          {
+            "text": "Prezentace maturitní práce"
+          }
+        ]
+      ]
+    }
+  ]
+}
